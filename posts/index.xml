@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on dstoiko personal blog</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on dstoiko personal blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moona: Start-up Story Series</title>
+      <link>/posts/moona-0-series/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/moona-0-series/</guid>
+      <description>I&amp;rsquo;m writing a series of posts about the story of Moona, the start-up company I&amp;rsquo;ve been working on since November 2016.
+I will tell the story of our company, our challenges, our mission and how we got from an initial prototype to a shipped product, from the moment I joined, which was 6 months after the project creation, up until now, 3 years later.
+This series will include 7 articles after this one, with a focus on product development and technical challenges specific to the hardware-software mix of our venture, but also on team creation and management:</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>/posts/hello-world/</link>
+      <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/hello-world/</guid>
+      <description>This is the first post I write in a while&amp;hellip; I had started writing a personal blog around 3 years ago. I wrote a couple of articles at the end of 2016 in order to showcase some data analysis, visualization and code work I&amp;rsquo;d done, then left it aside for quite a while as I was starting to work full-time on Moona and things were getting very busy. A lot of things have happened since then and I want to put some stories and thoughts into writing for whoever might find it interesting or helpful.</description>
+    </item>
+    
+  </channel>
+</rss>

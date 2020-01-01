@@ -6,9 +6,37 @@
     <description>Recent content in Tags on dstoiko personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hardware</title>
+      <link>/tags/hardware/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>moona</title>
+      <link>/tags/moona/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/moona/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shenzhen</title>
+      <link>/tags/shenzhen/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/shenzhen/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

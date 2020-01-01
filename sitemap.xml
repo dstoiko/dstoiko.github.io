@@ -8,6 +8,21 @@
   </url>
   
   <url>
+    <loc>/tags/hardware/</loc>
+    <lastmod>2019-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/moona/</loc>
+    <lastmod>2019-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/moona-2-hax/</loc>
+    <lastmod>2019-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/moona-0-series/</loc>
     <lastmod>2019-11-23T00:00:00+00:00</lastmod>
   </url>
@@ -15,6 +30,21 @@
   <url>
     <loc>/posts/</loc>
     <lastmod>2019-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/shenzhen/</loc>
+    <lastmod>2019-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/moona-1-ces/</loc>
+    <lastmod>2019-11-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -34,10 +64,6 @@
   
   <url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
   </url>
   
 </urlset>

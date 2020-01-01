@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Moona: Part II - HAX</title>
+      <link>/posts/moona-2-hax/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/moona-2-hax/</guid>
+      <description>This is the second article from a series on the story of Moona. Check out the other ones here Moona: Start-up Story Series.
+HAX Before flying to Shenzhen, actually as soon as we got accepted into the program, I watched a documentary that had been released by Wired just a few months before. It was starring Bunnie Huang, a brilliant electronics engineer who, while still a grad student at MIT, became the first person to hack the Xbox firmware back in December 2001.</description>
+    </item>
+    
+    <item>
       <title>Moona: Start-up Story Series</title>
       <link>/posts/moona-0-series/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
@@ -20,6 +30,15 @@
       <description>I&amp;rsquo;m writing a series of posts about the story of Moona, the start-up company I&amp;rsquo;ve been working on since November 2016.
 I will tell the story of our company, our challenges, our mission and how we got from an initial prototype to a shipped product, from the moment I joined, which was 6 months after the project creation, up until now, 3 years later.
 This series will include 7 articles after this one, with a focus on product development and technical challenges specific to the hardware-software mix of our venture, but also on team creation and management:</description>
+    </item>
+    
+    <item>
+      <title>Moona: Part I - CES</title>
+      <link>/posts/moona-1-ces/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/moona-1-ces/</guid>
+      <description> Going to CES </description>
     </item>
     
     <item>

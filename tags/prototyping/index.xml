@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>prototyping on dstoiko personal blog</title>
+    <link>/tags/prototyping/</link>
+    <description>Recent content in prototyping on dstoiko personal blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/prototyping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moona: Part II - HAX</title>
+      <link>/posts/moona-2-hax/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/moona-2-hax/</guid>
+      <description>This is the second article from a series on the story of Moona. Check out the other ones here Moona: Start-up Story Series.
+HAX Before flying to Shenzhen, actually as soon as we got accepted into the program, I watched a documentary that had been released by Wired just a few months before. It was starring Bunnie Huang, a brilliant electronics engineer who, while still a grad student at MIT, became the first person to hack the Xbox firmware back in December 2001.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>product on dstoiko personal blog</title>
+    <link>/tags/product/</link>
+    <description>Recent content in product on dstoiko personal blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/product/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moona: Part I - CES</title>
+      <link>/posts/moona-1-ces/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/moona-1-ces/</guid>
+      <description>This is the first article from a series on the story of Moona. Check out the other ones here Moona: Start-up Story Series.
+La French Tech I joined Moona around the time we were selected to take part in the Consumer Electronics Show (CES). My co-founder Coline had taken part in a French start-up contest organized by La French Tech, the French label / movement to promote technology start-ups in France and abroad.</description>
+    </item>
+    
+  </channel>
+</rss>

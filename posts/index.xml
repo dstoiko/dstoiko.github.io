@@ -50,5 +50,14 @@ I met my co-founder and CEO of Moona, Coline, in 2016. While she was looking for
       <description>This is the first post I write in a while&amp;hellip; I had started writing a personal blog around 3 years ago. I wrote a couple of articles at the end of 2016 in order to showcase some data analysis, visualization and code work I&amp;rsquo;d done, then left it aside for quite a while as I was starting to work full-time on Moona and things were getting very busy. A lot of things have happened since then and I want to put some stories and thoughts into writing for whoever might find it interesting or helpful.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/posts/ideas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ideas/</guid>
+      <description> Ideas for future posts Moona  Building a firmware CI pipeline using GitLab &amp;amp; RaspberryPi   </description>
+    </item>
+    
   </channel>
 </rss>

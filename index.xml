@@ -6,10 +6,21 @@
     <description>Recent content on dstoiko personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Making Pong with Go and WebAssembly</title>
+      <link>/posts/go-pong-wasm/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/go-pong-wasm/</guid>
+      <description>TL;DR For those of you in a hurry: I made a version of the classic Pong game using Go and WebAssembly. I then embedded that game on my website. here is the game, enjoy:
+  Why WebAssembly WebAssembly is a relatively new standard on web browsers. From the Wikipedia page:
+ The main goal of WebAssembly is to enable high-performance applications on web pages, but the format is designed to be executed and integrated in other environments as well.</description>
+    </item>
     
     <item>
       <title>Moona: Part II - HAX</title>
@@ -72,11 +83,11 @@ In this blog you will find:
     
     <item>
       <title></title>
-      <link>/posts/ideas/</link>
+      <link>/pong/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/posts/ideas/</guid>
-      <description> Ideas for future posts Moona  Building a firmware CI pipeline using GitLab &amp;amp; RaspberryPi   </description>
+      <guid>/pong/</guid>
+      <description>window.addEventListener(&#34;DOMContentLoaded&#34;, async () = { const go = new Go(); const url = &#34;/pong/main.wasm.gz&#34;; const pako = window.pako; let wasm = pako.ungzip(await (await fetch(url)).arrayBuffer()); // A fetched response might be decompressed twice on Firefox. // See https://bugzilla.mozilla.org/show_bug.cgi?id=610679 if (wasm[0] === 0x1f &amp;&amp; wasm[1] === 0x8b) { wasm = pako.ungzip(wasm); } const result = await WebAssembly.instantiate(wasm, go.importObject) .catch((err) = { console.error(err); }); document.getElementById(&#34;loading&#34;).remove(); go.run(result.instance); });  Loading.</description>
     </item>
     
   </channel>

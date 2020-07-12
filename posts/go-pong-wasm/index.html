@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Making Pong with Go and WebAssembly :: dstoiko personal blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="TL;DR For those of you in a hurry: I made a version of the classic Pong game using Go and WebAssembly. I then embedded that game on my website. here is the game, enjoy:
+  Why WebAssembly WebAssembly is a relatively new standard on web browsers. From the Wikipedia page:
+ The main goal of WebAssembly is to enable high-performance applications on web pages, but the format is designed to be executed and integrated in other environments as well."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/go-pong-wasm/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Making Pong with Go and WebAssembly :: dstoiko personal blog — " />
+<meta name="twitter:description" content="TL;DR For those of you in a hurry: I made a version of the classic Pong game using Go and WebAssembly. I then embedded that game on my website. here is the game, enjoy:
+  Why WebAssembly WebAssembly is a relatively new standard on web browsers. From the Wikipedia page:
+ The main goal of WebAssembly is to enable high-performance applications on web pages, but the format is designed to be executed and integrated in other environments as well." />
+<meta name="twitter:site" content="/" />
+<meta name="twitter:creator" content="dstoiko" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Making Pong with Go and WebAssembly :: dstoiko personal blog — ">
+<meta property="og:description" content="TL;DR For those of you in a hurry: I made a version of the classic Pong game using Go and WebAssembly. I then embedded that game on my website. here is the game, enjoy:
+  Why WebAssembly WebAssembly is a relatively new standard on web browsers. From the Wikipedia page:
+ The main goal of WebAssembly is to enable high-performance applications on web pages, but the format is designed to be executed and integrated in other environments as well." />
+<meta property="og:url" content="/posts/go-pong-wasm/" />
+<meta property="og:site_name" content="Making Pong with Go and WebAssembly" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2020-06-30 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    dstoiko&#39;s blog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/go-pong-wasm/">Making Pong with Go and WebAssembly</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-06-30
+    </span>
+    
+    
+    <span class="post-author">::
+      dstoiko
+    </span>
+    
+    
+    <span class="post-reading-time">::
+      8-min read
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/personal/">personal</a>&nbsp;
+    
+    #<a href="/tags/software/">software</a>&nbsp;
+    
+    #<a href="/tags/gaming/">gaming</a>&nbsp;
+    
+    #<a href="/tags/go/">go</a>&nbsp;
+    
+    #<a href="/tags/webassembly/">webassembly</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    
+
+<h1 id="tl-dr">TL;DR</h1>
+
+<p>For those of you in a hurry: I made a version of the classic Pong game using Go and WebAssembly. I then embedded that game on my website. here is the game, enjoy:</p>
+
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <iframe
+            sandbox="allow-same-origin allow-scripts"
+            src="/pong/index.html"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+        ></iframe>
+    </div>
+
+
+
+<h1 id="why-webassembly">Why WebAssembly</h1>
+
+<p>WebAssembly is a relatively new standard on web browsers. From the <a href="https://en.wikipedia.org/wiki/WebAssembly" target="_blank">Wikipedia page</a>:</p>
+
+<blockquote>
+<p>The main goal of WebAssembly is to enable high-performance applications on web pages, but the format is designed to be executed and integrated in other environments as well. (&hellip;) WebAssembly (i.e. WebAssembly Core Specification and WebAssembly JavaScript Interface) became World Wide Web Consortium recommendations on 5 December 2019 and, alongside HTML, CSS, and JavaScript, is the fourth language to run natively in browsers.</p>
+</blockquote>
+
+<p>Although it can be used on other interfaces, the WebAssembly standard basically allows to run code written in another language than HTML or JavaScript, so long as it can be compiled into WebAssembly language, which can be seen as the equivalent as assembly code for any JavaScript virtual machine, but in particular web browsers. The output <em>.wasm</em> file of any WebAssembly project can be read and interpreted directly by any web browser following the WWW spec. The project was kicked off and first maintained by the Mozilla foundation. The documentation can be found on the <a href="https://webassembly.org/" target="_blank">official website</a>.</p>
+
+<h1 id="why-go">Why Go</h1>
+
+<p>At <a href="https://en.getmoona.com" target="_blank">Moona</a>, our backend API server runs on go. I really like this language as it is simple to write, yet feature-rich and performant, with a large community and adoption by tech companies working on large-scale infrastructure and systems (Google, Amazon, Netflix, Docker, Cloudflare&hellip;). There should always be one &ldquo;canonic&rdquo; way to do one thing, which makes reasoning about code easier, freeing up some mental load. It&rsquo;s a compiled, statically-typed language so it catches more potential errors upstream, it&rsquo;s garbage-collected so no need to manage memory, it handles concurrency natively and it&rsquo;s fast.</p>
+
+<h1 id="why-pong">Why Pong</h1>
+
+<p><a href="https://en.wikipedia.org/wiki/Pong" target="_blank">Pong</a> is a classic game made popular by Atari systems, and was one of the first home video games ever commercialized. I wanted to try out WebAssembly with Go on a simple and classic game which can be played against an AI or another human to make it more fun.</p>
+
+<h1 id="coding-the-game">Coding the game</h1>
+
+<p>At first I had written this game using the <a href="https://github.com/veandco/go-sdl2" target="_blank">Go port of the SDL2 library</a>, originally written in C, which allows to access audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D, in order to code native user interfaces (including games) easily. Credit goes to <a href="https://github.com/jackmott" target="_blank">Jack Mott</a> for his tutorial series <a href="https://gameswithgo.org/" target="_blank">Games with Go</a> for the initial version, which was inspired from his videos and modified to fit my needs.</p>
+
+<p>But while porting the game to WebAssembly, I looked for ways to simplify development. So I found this 2D gaming library named <a href="https://ebiten.org" target="_blank">Ebiten</a> by <a href="https://github.com/hajimehoshi" target="_blank">Hajime Hoshi</a> which was perfectly suited for the job, as it handles game loop, 60FPS graphics, inputs, text, audio, sprites etc. and can compile to WebAssembly (!!!). I refactored the code to fit the new library.</p>
+
+<p>The code is organized into:</p>
+
+<ul>
+<li><code>package pong</code> which contains all the game objects and structures (paddles, ball, text, colors, enums), as well as logic specific to these objects. The two paddles and the ball can be <code>Update</code>d and <code>Draw</code>n on the screen.</li>
+<li><code>package main</code> which contains the game loop and logic dependent on the game states</li>
+<li><code>package server</code> which is a super simple HTTP server for the WebAssembly version</li>
+</ul>
+
+<p>The game has several states which are simple and grouped into a go struct as follows:</p>
+
+<pre><code class="language-go">// there can be only up to 256 game states ¯\_(ツ)_/¯
+type GameState byte
+
+const (
+	StartState GameState = iota
+	ControlsState
+	PlayState
+	InterState
+	PauseState
+	GameOverState
+)
+</code></pre>
+
+<p>The game logic is pretty straightforward. There are still some small glitches but overall it&rsquo;s an easy piece of code, just for demo purposes. You can find it <a href="https://github.com/dstoiko/go-pong-wasm" target="_blank">on my github here</a>.</p>
+
+<h1 id="compiling-for-webassembly">Compiling for WebAssembly</h1>
+
+<p>I first ran the code in a native binary executable, because the compilation was straightforward and it allowed me to test the game logic easily on my machine. I created a <em>Makefile</em> with the target <code>native</code> which should perform the simple command:</p>
+
+<pre><code class="language-makefile">go build -o ./build/pong .
+</code></pre>
+
+<p>Then, I wanted to port the code to WebAssembly. But first I needed to figure out a few things&hellip;</p>
+
+<h2 id="how-to-compile-the-go-code-to-output-a-wasm-webassembly-file">How to compile the go code to output a <em>.wasm</em> WebAssembly file?</h2>
+
+<p>Fortunately, the <a href="https://github.com/golang/go/wiki/WebAssembly#getting-started" target="_blank">Golang wiki</a> has an entry on how to build programs for WebAssembly. It goes straight to the point with a &ldquo;hello world&rdquo; example and simple steps to achieve a port of any program to WebAssembly. I recommend this resource as a must-read for anyone wanting to compile go code into WebAssembly. So I tested their example code and it seemed to work, so I started checking the documentation for it on the <a href="https://ebiten.org/documents/webassembly.html" target="_blank">Ebiten website</a>. So I created the <code>wasm</code> target in my <em>Makefile</em> which basically does this:</p>
+
+<pre><code class="language-makefile">cp $$(go env GOROOT)/misc/wasm/wasm_exec.js ./html/wasm_exec.js
+GOOS=js GOARCH=wasm go build -o ./html/main.wasm .
+</code></pre>
+
+<p>The <em>wasm_exec.js</em> file is a JavaScript support file which enables the use of system calls to the JS engine in the web browser.</p>
+
+<p>I also adapted the main code so that it runs at fullscreen instead of fixed window size when running in a browser:</p>
+
+<pre><code class="language-go">func main() {
+	if runtime.GOARCH == &quot;js&quot; || runtime.GOOS == &quot;js&quot; {
+		ebiten.SetFullscreen(true)
+	}
+	...
+}
+</code></pre>
+
+<h2 id="how-and-what-exactly-to-serve-to-the-web-browser-in-order-to-properly-run-the-game">How (and what exactly) to serve to the web browser in order to properly run the game?</h2>
+
+<p>We need to serve three files ultimately:</p>
+
+<ul>
+<li>The <em>main.wasm</em> file with WebAssembly compiled code</li>
+<li>The <em>wasm_exec.js</em> JavaScript support file</li>
+
+<li><p>The <em>index.html</em> which just streams the WebAssembly file into the browser with a simple JS script:</p>
+
+<pre><code class="language-js">// Polyfill
+if (!WebAssembly.instantiateStreaming) {
+WebAssembly.instantiateStreaming = async (resp, importObject) =&gt; {
+    const source = await (await resp).arrayBuffer();
+    return await WebAssembly.instantiate(source, importObject);
+};
+}
+
+const go = new Go();
+WebAssembly.instantiateStreaming(fetch(&quot;main.wasm&quot;), go.importObject).then(result =&gt; {
+go.run(result.instance);
+});
+</code></pre></li>
+</ul>
+
+<p>So the <em>server/server.go</em> file will do just that. Once we compile the <em>main.wasm</em> from our go code, it will be served at <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> and we&rsquo;re set.</p>
+
+<h2 id="how-to-make-the-executable-lightweight-when-embedding-it-into-a-static-website">How to make the executable lightweight when embedding it into a static website?</h2>
+
+<p>The main issue with &ldquo;just&rdquo; compiling to WebAssembly is that the executable was around 10MB in size:</p>
+
+<pre><code class="language-bash">-rw-r--r--@  1 vultur  staff       661 Jul 12 22:26 index.html
+-rwxr-xr-x@  1 vultur  staff  10147815 Jul 12 22:53 main.wasm
+-rw-r--r--@  1 vultur  staff     13077 Jul 12 22:53 wasm_exec.js
+</code></pre>
+
+<p>So I needed a way to make the file a bit lighter in order to serve it on my blog. Thankfully there is <code>gzip</code> for that. Before writing any code or going deep into documentation, I checked out the examples on the Ebiten website, as the author was already embedding his demos on his website. I dug through the source code and found out that he&rsquo;s using the <a href="https://github.com/nodeca/pako" target="_blank">pako JS library</a> to inflate the gzip-compressed files when streaming them in the browser. So I decided to do the same and:</p>
+
+<p>&hellip;first, gzip the <em>main.wasm</em> file:</p>
+
+<pre><code class="language-bash">gzip -9 -v -c main.wasm &gt; main.wasm.gz
+</code></pre>
+
+<p>&hellip;which gave me a file size of about 2MB:</p>
+
+<pre><code class="language-bash">-rw-r--r--@  1 vultur  staff   2296872 Jul 12 23:53 main.wasm.gz
+</code></pre>
+
+<p>&hellip;then, modify the <em>index.html</em> accordingly:</p>
+
+<pre><code class="language-js">window.addEventListener(&quot;DOMContentLoaded&quot;, async () =&gt; {
+    const go = new Go();
+    const url = &quot;main.wasm.gz&quot;; // the gzip-compressed wasm file
+    const pako = window.pako;
+    let wasm = pako.ungzip(await (await fetch(url)).arrayBuffer());
+    // A fetched response might be decompressed twice on Firefox.
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=610679
+    if (wasm[0] === 0x1f &amp;&amp; wasm[1] === 0x8b) {
+        wasm = pako.ungzip(wasm);
+    }
+    const result = await WebAssembly.instantiate(wasm, go.importObject)
+        .catch((err) =&gt; {
+            console.error(err);
+        });
+    document.getElementById(&quot;loading&quot;).remove(); // a loading text before the wasm loads
+    go.run(result.instance);
+});
+</code></pre>
+
+<h2 id="how-to-embed-the-game-into-my-hugo-blog">How to embed the game into my Hugo blog?</h2>
+
+<p>The last thing I needed to do was to embed the three files into my blog. I&rsquo;m using the Hugo framework so all articles I write are in markdown. I created a <a href="https://gohugo.io/templates/shortcode-templates/" target="_blank">custom shortcode</a> in order to embed the webassembly content as an iframe, as suggested by the Ebiten documentation. I first wrote a template for the shortcode, laying out the HTML that will be rendered when calling it from within the article:</p>
+
+<pre><code class="language-html">{{ if .Get &quot;src&quot; }}
+    &lt;div style=&quot;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&quot;&gt;
+        &lt;iframe
+            sandbox=&quot;allow-same-origin allow-scripts&quot;
+            src=&quot;{{ .Get `src` }}&quot;
+            style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&quot;
+        &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+{{ end }}
+</code></pre>
+
+<p>Then I just added the files for serving the game in a new page folder inside my blog directory and referenced to it as the <code>src</code> tag of my shortcode:</p>
+
+<pre><code>{{ &lt; ebiten src=&quot;/pong/index.html&quot; &gt; }}
+</code></pre>
+
+<h2 id="a-note-on-performance">A note on performance</h2>
+
+<p>While the game is super smooth on native platforms and keeps its promise of 60FPS, I noticed on browsers that the framerate sometimes drops. At first I thought I was doing something wrong with the gaming library so I used the debug flag to build and check what drawing operations were done everytime the game loop ran. Also read the performance tips on the Ebiten website, but there was nothing I was doing that didn&rsquo;t meet the performance guidelines. So I checked the examples on the website and noticed the same frame drops especially when maintaining a key pressed on the keyboard. It&rsquo;s not a critical issue but needs to be investigated further&hellip; Maybe in another post when I get some time to debug!</p>
+
+<h1 id="closing-words">Closing words</h1>
+
+<p>In this little project, I learned how to build Go code into WebAssembly and learned how to program a game using the Ebiten library, which offers a range of great tools to develop any 2D game. It gave me a few ideas of things I want to try next with it. I hope you found this post interesting as an intro to WebAssembly!</p>
+
+  </div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Read other posts</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="/posts/moona-2-hax/">
+          <span class="button__text">Moona: Part II - HAX</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

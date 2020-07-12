@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webassembly on dstoiko personal blog</title>
+    <link>/tags/webassembly/</link>
+    <description>Recent content in webassembly on dstoiko personal blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/webassembly/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Making Pong with Go and WebAssembly</title>
+      <link>/posts/go-pong-wasm/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/go-pong-wasm/</guid>
+      <description>TL;DR For those of you in a hurry: I made a version of the classic Pong game using Go and WebAssembly. I then embedded that game on my website. here is the game, enjoy:
+  Why WebAssembly WebAssembly is a relatively new standard on web browsers. From the Wikipedia page:
+ The main goal of WebAssembly is to enable high-performance applications on web pages, but the format is designed to be executed and integrated in other environments as well.</description>
+    </item>
+    
+  </channel>
+</rss>
